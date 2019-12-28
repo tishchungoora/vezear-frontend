@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
-.login-form {
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
   width: 40rem;
+  margin-top: 10rem;
+  background-color: rgb(228, 228, 228);
+  padding: 5rem;
 }

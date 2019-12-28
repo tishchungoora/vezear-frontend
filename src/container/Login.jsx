@@ -3,10 +3,10 @@ import React, { Component } from "react";
 export default class login extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="login-form">
-          <h2>Login</h2>
-          <form>
+      <div className="login">
+        <div className="login-container ">
+          <h2 className="text-center mb-5">Login</h2>
+          <form className="login-form">
             <div className="form-group">
               <label for="email">Email address</label>
               <input
