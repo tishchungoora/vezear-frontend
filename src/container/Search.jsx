@@ -33,11 +33,11 @@ export default class Search extends Component {
   }
 
   render() {
-    const { productCategories } = this.state;
+    const { productCategories, products } = this.state;
 
     return (
-      <div className="container">
-        <div className="row bg-light border m-3 p-3">
+      <div className="flex-container">
+        <div className="row bg-light border m-5 p-3">
           <div className="col p-3">
             <SearchBar />
           </div>
@@ -45,8 +45,8 @@ export default class Search extends Component {
             <CategorySelector productCategories={productCategories} />
           </div>
         </div>
-        <div className="row p-3">
-          <ProductCollection />
+        <div>
+          <ProductCollection products={products} />
         </div>
       </div>
     );
