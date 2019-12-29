@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-export default class login extends Component {
+class Login extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="login">
-        <div className="login-container ">
+        <div className="login-container mt-5">
           <h2 className="text-center mb-3">Login</h2>
           <form className="login-form">
             <div className="form-group">
@@ -30,7 +32,13 @@ export default class login extends Component {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={() => {
+                this.props.history.push("/user");
+              }}
+            >
               Submit
             </button>
           </form>
@@ -39,3 +47,5 @@ export default class login extends Component {
     );
   }
 }
+
+export default withRouter(Login);

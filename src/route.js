@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./component/App";
 import Login from "./container/Login";
+import UserInfo from "./container/UserInfo";
 
 export default function AppRoute() {
   return (
@@ -44,6 +45,9 @@ export default function AppRoute() {
       <Switch>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/user">
+          <UserInfo />
         </Route>
         <Route path="/">
           <App />
