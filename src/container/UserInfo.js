@@ -1,11 +1,41 @@
 import React, { Component } from "react";
 
 export default class UserInfo extends Component {
+  state = {
+    fullName: "",
+    companyName: "",
+    companyIndustry: "",
+    companySize: "",
+    numberOfEmployees: "",
+    yearFounded: "",
+    annualRevenue: ""
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
+    const {
+      fullName,
+      companyName,
+      companyIndustry,
+      companySize,
+      numberOfEmployees,
+      yearFounded,
+      annualRevenue
+    } = this.state;
+
     return (
       <div className="p-5">
         <h2 className="text-center mb-3">User Information</h2>
-        <form className="container">
+        <form className="container" onSubmit={this.handleSubmit}>
           <div class="form-group">
             <label for="full-name">Full name</label>
             <input
@@ -13,6 +43,9 @@ export default class UserInfo extends Component {
               class="form-control"
               id="full-name"
               placeholder="John Doe"
+              name="fullName"
+              onChange={this.handleInputChange}
+              value={fullName}
             />
           </div>
           <div class="form-row">
@@ -22,12 +55,21 @@ export default class UserInfo extends Component {
                 type="text"
                 class="form-control"
                 id="company-name"
-                placeholder="Email"
+                placeholder="Name"
+                name="companyName"
+                onChange={this.handleInputChange}
+                value={companyName}
               />
             </div>
             <div class="form-group col-md-6">
               <label for="industry">Company industry</label>
-              <select class="custom-select" id="revenue">
+              <select
+                class="custom-select"
+                id="revenue"
+                name="companyIndustry"
+                value={companyIndustry}
+                onChange={this.handleInputChange}
+              >
                 <option value="Accounting">Accounting</option>
                 <option value="Airlines/Aviation">Airlines/Aviation</option>
                 <option value="Alternative Dispute Resolution">
@@ -294,11 +336,20 @@ export default class UserInfo extends Component {
                 class="form-control"
                 id="size"
                 placeholder="Size"
+                name="companySize"
+                value={companySize}
+                onChange={this.handleInputChange}
               />
             </div>
             <div class="form-group col-md-6">
               <label for="employee">Number of employees</label>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select
+                class="custom-select"
+                id="inputGroupSelect01"
+                name="numberOfEmployees"
+                value={numberOfEmployees}
+                onChange={this.handleInputChange}
+              >
                 <option selected>Choose...</option>
                 <option value="1">0-10</option>
                 <option value="2">10-30</option>
@@ -316,11 +367,20 @@ export default class UserInfo extends Component {
                 class="form-control"
                 id="year"
                 placeholder="1999 "
+                name="yearFounded"
+                value={yearFounded}
+                onChange={this.handleInputChange}
               />
             </div>
             <div class="form-group col-md-6">
               <label for="revenue">Annual revenue</label>
-              <select class="custom-select" id="revenue">
+              <select
+                class="custom-select"
+                id="revenue"
+                name="annualRevenue"
+                value={annualRevenue}
+                onChange={this.handleInputChange}
+              >
                 <option selected>Choose...</option>
                 <option value="1">0-500K</option>
                 <option value="2">500K-5M</option>
