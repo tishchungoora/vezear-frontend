@@ -2,13 +2,29 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 class Login extends Component {
+  state = {
+    email: "",
+    password: ""
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.history.push("/user");
+    
+  };
+
   render() {
-    console.log(this.props);
     return (
       <div className="login">
         <div className="login-container mt-5">
           <h2 className="text-center mb-3">Login</h2>
-          <form className="login-form">
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label for="email">Email address</label>
               <input
@@ -17,6 +33,9 @@ class Login extends Component {
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
+                name="email"
+                onChange={this.handleInputChange}
+                value={this.state.email}
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
@@ -29,16 +48,13 @@ class Login extends Component {
                 className="form-control"
                 id="password"
                 placeholder="Password"
+                name="password"
+                onChange={this.handleInputChange}
+                value={this.state.password}
               />
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={() => {
-                this.props.history.push("/user");
-              }}
-            >
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
