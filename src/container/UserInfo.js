@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-export default class UserInfo extends Component {
+class UserInfo extends Component {
   state = {
     fullName: "",
     companyName: "",
@@ -19,6 +20,7 @@ export default class UserInfo extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.history.push("/questions");
   };
 
   render() {
@@ -399,3 +401,5 @@ export default class UserInfo extends Component {
     );
   }
 }
+
+export default withRouter(UserInfo);

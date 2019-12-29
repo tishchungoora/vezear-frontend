@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./component/App";
 import Login from "./container/Login";
 import UserInfo from "./container/UserInfo";
+import Questions from "./container/Questions";
 
 export default function AppRoute() {
   return (
@@ -48,6 +49,9 @@ export default function AppRoute() {
         </Route>
         <Route path="/user">
           <UserInfo />
+        </Route>
+        <Route path="/questions">
+          <Questions />
         </Route>
         <Route path="/">
           <App />
