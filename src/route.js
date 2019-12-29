@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./component/App";
 import Login from "./container/Login";
+import Search from "./container/Search";
 
 export default function AppRoute() {
   return (
@@ -38,10 +39,18 @@ export default function AppRoute() {
                 Questions
               </Link>
             </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/search">
+                Search Products
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
       <Switch>
+        <Route path="/search">
+          <Search />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
