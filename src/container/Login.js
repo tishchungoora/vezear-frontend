@@ -1,12 +1,30 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-export default class login extends Component {
+class Login extends Component {
+  state = {
+    email: "",
+    password: ""
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.history.push("/user");
+    
+  };
+
   render() {
     return (
       <div className="login">
-        <div className="login-container ">
+        <div className="login-container mt-5">
           <h2 className="text-center mb-3">Login</h2>
-          <form className="login-form">
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label for="email">Email address</label>
               <input
@@ -15,6 +33,9 @@ export default class login extends Component {
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
+                name="email"
+                onChange={this.handleInputChange}
+                value={this.state.email}
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
@@ -27,6 +48,9 @@ export default class login extends Component {
                 className="form-control"
                 id="password"
                 placeholder="Password"
+                name="password"
+                onChange={this.handleInputChange}
+                value={this.state.password}
               />
             </div>
 
@@ -39,3 +63,5 @@ export default class login extends Component {
     );
   }
 }
+
+export default withRouter(Login);

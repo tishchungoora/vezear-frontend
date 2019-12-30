@@ -8,7 +8,8 @@ const API_ENDPOINT = "http://localhost:3000";
 export default class Search extends Component {
   state = {
     productCategories: [],
-    products: []
+    products: [],
+    searchTerm: ""
   };
 
   getProductCategories = () => {
@@ -33,7 +34,7 @@ export default class Search extends Component {
   }
 
   render() {
-    const { productCategories, products } = this.state;
+    const { productCategories, products, searchTerm } = this.state;
 
     return (
       <div className="flex-container">
