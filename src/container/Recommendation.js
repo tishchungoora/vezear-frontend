@@ -4,19 +4,19 @@ export default class Recommendation extends Component {
   state = {
     products: [
       {
-        name: "lorem ipsum"
+        name: "lorem ipsum1"
       },
       {
-        name: "lorem ipsum"
+        name: "lorem ipsum2"
       },
       {
-        name: "lorem ipsum"
+        name: "lorem ipsum3"
       },
       {
-        name: "lorem ipsum"
+        name: "lorem ipsum4"
       },
       {
-        name: "lorem ipsum"
+        name: "lorem ipsum5"
       }
     ]
   };
@@ -26,7 +26,7 @@ export default class Recommendation extends Component {
       <div>
         <ul>
           {this.state.products.map(product => (
-            <li>{product.name}</li>
+            <li key={product.name}>{product.name}</li>
           ))}
         </ul>
       </div>

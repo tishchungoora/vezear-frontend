@@ -68,6 +68,7 @@ class Questions extends Component {
             question={questions[currentQuestion - 1].question}
             options={questions[currentQuestion - 1].options}
             currentQuestion={currentQuestion}
+            key={questions[currentQuestion - 1].question}
           />
         </div>
       </div>

@@ -9,12 +9,12 @@ import Recommendation from "./container/Recommendation";
 export default function AppRoute() {
   return (
     <Router>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">
           Vezear
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -22,23 +22,33 @@ export default function AppRoute() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ">
-            <li class="nav-item">
-              <Link class="nav-link" to="/login">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ">
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
                 Login
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/">
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">
+                Signup
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/account">
+                Account
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
                 Businesses
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" href="/">
-                Questions
+            <li className="nav-item">
+              <Link className="nav-link" to="/questions">
+                Start
               </Link>
             </li>
           </ul>

@@ -8,15 +8,15 @@ export default function Question({ question, options, currentQuestion }) {
         <div>
           <h3>{question}</h3>
           {options.map(option => (
-            <div class="form-check">
+            <div classNamme="form-check" key={option}>
               <input
                 type="radio"
-                class="form-check-input"
+                classNamme="form-check-input"
                 id={option}
                 value={option}
                 name="radio"
               />
-              <label class="form-radio-label" for={option}>
+              <label className="form-radio-label" for={option}>
                 {option}
               </label>
             </div>

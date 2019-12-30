@@ -38,11 +38,11 @@ class UserInfo extends Component {
       <div className="p-5">
         <h2 className="text-center mb-3">User Information</h2>
         <form className="container" onSubmit={this.handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <label for="full-name">Full name</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="full-name"
               placeholder="John Doe"
               name="fullName"
@@ -50,12 +50,12 @@ class UserInfo extends Component {
               value={fullName}
             />
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <div className="form-row">
+            <div className="form-group col-md-6">
               <label for="company-name">Company name</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="company-name"
                 placeholder="Name"
                 name="companyName"
@@ -63,10 +63,10 @@ class UserInfo extends Component {
                 value={companyName}
               />
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label for="industry">Company industry</label>
               <select
-                class="custom-select"
+                className="custom-select"
                 id="revenue"
                 name="companyIndustry"
                 value={companyIndustry}
@@ -330,12 +330,12 @@ class UserInfo extends Component {
               </select>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <div className="form-row">
+            <div className="form-group col-md-6">
               <label for="size">Company size</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="size"
                 placeholder="Size"
                 name="companySize"
@@ -343,10 +343,10 @@ class UserInfo extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label for="employee">Number of employees</label>
               <select
-                class="custom-select"
+                className="custom-select"
                 id="inputGroupSelect01"
                 name="numberOfEmployees"
                 value={numberOfEmployees}
@@ -361,12 +361,12 @@ class UserInfo extends Component {
               </select>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <div className="form-row">
+            <div className="form-group col-md-6">
               <label for="year">Year founded</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="year"
                 placeholder="1999 "
                 name="yearFounded"
@@ -374,10 +374,10 @@ class UserInfo extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label for="revenue">Annual revenue</label>
               <select
-                class="custom-select"
+                className="custom-select"
                 id="revenue"
                 name="annualRevenue"
                 value={annualRevenue}
@@ -393,7 +393,7 @@ class UserInfo extends Component {
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
