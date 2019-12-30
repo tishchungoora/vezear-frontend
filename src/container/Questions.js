@@ -32,7 +32,7 @@ class Questions extends Component {
   };
 
   handleSubmit = () => {
-    this.props.history.push("/");
+    this.props.history.push("/recommendation");
   };
 
   render() {

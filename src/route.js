@@ -4,6 +4,7 @@ import App from "./component/App";
 import Login from "./container/Login";
 import UserInfo from "./container/UserInfo";
 import Questions from "./container/Questions";
+import Recommendation from "./container/Recommendation";
 
 export default function AppRoute() {
   return (
@@ -52,6 +53,9 @@ export default function AppRoute() {
         </Route>
         <Route path="/questions">
           <Questions />
+        </Route>
+        <Route path="/recommendation">
+          <Recommendation />
         </Route>
         <Route path="/">
           <App />
