@@ -73,4 +73,4 @@ export default function AppRoute() {
       </Switch>
     </Router>
   );
-}
+};
