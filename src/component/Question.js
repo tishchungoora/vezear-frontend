@@ -27,7 +27,9 @@ export default function Question({
                 onChange={value => handleSliderChange(value, id)}
                 onChangeComplete={() => {}}
               />
-              <div className="value">{value}%</div>
+              <div className="value">
+                {options[0]} {value}%, {options[1]} {100 - value}%
+              </div>
             </div>
           ) : (
             options.map(option => (
