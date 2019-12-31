@@ -21,13 +21,12 @@ export default class Search extends Component {
   };
 
   setProducts = () => {
-    API.fetchProducts()
-      .then(data =>
-        this.setState({
-          displayedProducts: data.sort((a, b) => a.name.localeCompare(b.name)),
-          products: data
-        })
-      );
+    API.fetchProducts().then(data =>
+      this.setState({
+        displayedProducts: data.sort((a, b) => a.name.localeCompare(b.name)),
+        products: data
+      })
+    );
   };
 
   componentDidMount() {
@@ -48,17 +47,39 @@ export default class Search extends Component {
   };
 
   handleSearchInputChange = event =>
-    this.setState({ searchTerm: event.target.value })
+    this.setState({ searchTerm: event.target.value });
+
+  handleSearchSubmit = event => {
+    const newProducts = [...this.state.displayedProducts];
+
+    if (this.state.searchTerm === "") {
+      this.setState({ displayedProducts: newProducts });
+    } else {
+      event.preventDefault();
+      this.setState({
+        displayedProducts: newProducts.filter(p =>
+          p.name.toLowerCase().includes(this.state.searchTerm)
+        )
+      });
+    }
+  };
 
   render() {
     const { productCategories, displayedProducts } = this.state;
-    const { filterProducts, handleSearchInputChange } = this;
+    const {
+      filterProducts,
+      handleSearchInputChange,
+      handleSearchSubmit
+    } = this;
 
     return (
       <div className="flex-container">
         <div className="row bg-light border m-5 p-3">
           <div className="col p-3">
-            <SearchBar handleSearchInputChange={handleSearchInputChange} />
+            <SearchBar
+              handleSearchInputChange={handleSearchInputChange}
+              handleSearchSubmit={handleSearchSubmit}
+            />
           </div>
           <div className="col p-3">
             <CategorySelector
