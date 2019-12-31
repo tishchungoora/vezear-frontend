@@ -9,7 +9,14 @@ class UserInfo extends Component {
     companySize: "",
     numberOfEmployees: "",
     yearFounded: "",
-    annualRevenue: ""
+    annualRevenue: "",
+    locations: [{}]
+  };
+
+  handleAddLocation = () => {
+    this.setState({
+      locations: [{}, ...this.state.locations]
+    });
   };
 
   handleInputChange = e => {
@@ -393,7 +400,75 @@ class UserInfo extends Component {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <div>
+            <p>
+              Is your business operating in a single location or multiple
+              locations?{" "}
+            </p>
+            {/* <div className="d-flex">
+              <div class="form-check mr-5">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Single
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Multiple
+                </label>
+              </div>
+            </div> */}
+
+            <p className="mt-3">
+              Please Enter the zipcode in which your business is operating
+            </p>
+            <form class="form-inline">
+              {this.state.locations.map(() => (
+                <div className="d-flex">
+                  <div class="form-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="staticEmail2"
+                      placeholder="Zip code"
+                    />
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      placeholder="Address"
+                    />
+                  </div>
+                </div>
+              ))}
+              <button
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleAddLocation();
+                }}
+                class="btn btn-secondary mb-2"
+              >
+                Add Another location
+              </button>
+            </form>
+          </div>
+          <button type="submit" className="btn btn-primary mt-5">
             Submit
           </button>
         </form>

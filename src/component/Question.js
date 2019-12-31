@@ -11,7 +11,7 @@ export default function Question({ question, options, currentQuestion }) {
             <div classNamme="form-check" key={option}>
               <input
                 type="radio"
-                classNamme="form-check-input"
+                className="form-check-input"
                 id={option}
                 value={option}
                 name="radio"
