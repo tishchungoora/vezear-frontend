@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PlacesAutocomplete from "react-places-autocomplete";
+import {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng
+} from "react-places-autocomplete";
 
 class UserInfo extends Component {
   state = {
@@ -10,13 +16,35 @@ class UserInfo extends Component {
     numberOfEmployees: "",
     yearFounded: "",
     annualRevenue: "",
-    locations: [{}]
+    locations: [
+      {
+        address: ""
+      }
+    ]
   };
 
   handleAddLocation = () => {
     this.setState({
-      locations: [{}, ...this.state.locations]
+      locations: [
+        {
+          address: ""
+        },
+        ...this.state.locations
+      ]
     });
+  };
+
+  handleChange = (address, i) => {
+    const copiedLocations = [...this.state.locations];
+    copiedLocations[i].address = address;
+    this.setState({ locations: copiedLocations });
+  };
+
+  handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log("Success", latLng))
+      .catch(error => console.error("Error", error));
   };
 
   handleInputChange = e => {
@@ -436,8 +464,8 @@ class UserInfo extends Component {
             <p className="mt-3">
               Please Enter the zipcode in which your business is operating
             </p>
-            <form class="form-inline">
-              {this.state.locations.map(() => (
+            <form class="">
+              {this.state.locations.map((location, i) => (
                 <div className="d-flex">
                   <div class="form-group mb-2">
                     <input
@@ -447,14 +475,55 @@ class UserInfo extends Component {
                       placeholder="Zip code"
                     />
                   </div>
-                  <div class="form-group mx-sm-3 mb-2">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="address"
-                      placeholder="Address"
-                    />
-                  </div>
+                  <PlacesAutocomplete
+                    value={location.address}
+                    onChange={address => this.handleChange(address, i)}
+                    onSelect={this.handleSelect}
+                  >
+                    {({
+                      getInputProps,
+                      suggestions,
+                      getSuggestionItemProps,
+                      loading
+                    }) => (
+                      <div>
+                        <input
+                          {...getInputProps({
+                            placeholder: "Search Places ...",
+                            className: "location-search-input form-control ml-3"
+                          })}
+                        />
+                        <div className="autocomplete-dropdown-container">
+                          {loading && <div className="ml-3">Loading...</div>}
+                          {suggestions.map(suggestion => {
+                            const className = suggestion.active
+                              ? "suggestion-item--active"
+                              : "suggestion-item";
+                            // inline style for demonstration purpose
+                            const style = suggestion.active
+                              ? {
+                                  backgroundColor: "#fafafa",
+                                  cursor: "pointer"
+                                }
+                              : {
+                                  backgroundColor: "#ffffff",
+                                  cursor: "pointer"
+                                };
+                            return (
+                              <div
+                                {...getSuggestionItemProps(suggestion, {
+                                  className,
+                                  style
+                                })}
+                              >
+                                <span>{suggestion.description}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </PlacesAutocomplete>
                 </div>
               ))}
               <button
