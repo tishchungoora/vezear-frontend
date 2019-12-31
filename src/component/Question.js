@@ -18,7 +18,7 @@ export default function Question({
         <div>
           <h3>{question}</h3>
           {type === "range" ? (
-            <div className="slider">
+            <div className="slider ml-3">
               <Slider
                 min={0}
                 max={100}
@@ -31,15 +31,15 @@ export default function Question({
             </div>
           ) : (
             options.map(option => (
-              <div classNamme="form-check" key={option}>
+              <div classNamme="form-check ml-3" key={option}>
                 <input
                   type={type}
-                  className="form-check-input"
+                  className="form-check-input ml-3"
                   id={option}
                   value={option}
                   name="radio"
                 />
-                <label className="form-radio-label" for={option}>
+                <label className="form-radio-label ml-5" for={option}>
                   {option}
                 </label>
               </div>
