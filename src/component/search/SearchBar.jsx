@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 export default class SearchBar extends Component {
   render() {
+    const { handleSearchInputChange } = this.props
+
     return (
       <div>
         <h5 className="pb-2">Search by keyword:</h5>
@@ -11,6 +13,7 @@ export default class SearchBar extends Component {
             type="text"
             placeholder="Start typing..."
             aria-label="Search"
+            onChange={handleSearchInputChange}
           />
           <button class="btn btn-primary ml-2" type="submit">
             Search

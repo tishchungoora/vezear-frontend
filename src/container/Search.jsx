@@ -8,7 +8,8 @@ export default class Search extends Component {
   state = {
     productCategories: [],
     displayedProducts: [],
-    products: []
+    products: [],
+    searchTerm: ""
   };
 
   setProductCategories = () => {
@@ -46,15 +47,18 @@ export default class Search extends Component {
     }
   };
 
+  handleSearchInputChange = event =>
+    this.setState({ searchTerm: event.target.value })
+
   render() {
     const { productCategories, displayedProducts } = this.state;
-    const { filterProducts } = this;
+    const { filterProducts, handleSearchInputChange } = this;
 
     return (
       <div className="flex-container">
         <div className="row bg-light border m-5 p-3">
           <div className="col p-3">
-            <SearchBar />
+            <SearchBar handleSearchInputChange={handleSearchInputChange} />
           </div>
           <div className="col p-3">
             <CategorySelector
