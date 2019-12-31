@@ -11,7 +11,7 @@ export default class SearchBar extends Component {
           <input
             className="form-control w-75"
             type="text"
-            placeholder="Start typing..."
+            placeholder="Search for..."
             aria-label="Search"
             onChange={handleSearchInputChange}
           />

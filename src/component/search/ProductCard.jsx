@@ -5,7 +5,7 @@ export default class ProductCard extends Component {
     const { product } = this.props;
 
     return (
-      <div className="card w-25 m-3">
+      <div className="card w-25 m-3 shadow">
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <em>Category: {product.product_category.name}</em>

@@ -57,8 +57,13 @@ export default class Search extends Component {
     } else {
       event.preventDefault();
       this.setState({
-        displayedProducts: newProducts.filter(p =>
-          p.name.toLowerCase().includes(this.state.searchTerm)
+        displayedProducts: newProducts.filter(
+          p =>
+            p.name.toLowerCase().includes(this.state.searchTerm) ||
+            p.description.toLowerCase().includes(this.state.searchTerm) ||
+            p.product_category.name
+              .toLowerCase()
+              .includes(this.state.searchTerm)
         )
       });
     }
