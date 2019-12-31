@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PlacesAutocomplete from "react-places-autocomplete";
+import {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng
+} from "react-places-autocomplete";
 
 class UserInfo extends Component {
   state = {
@@ -9,7 +15,36 @@ class UserInfo extends Component {
     companySize: "",
     numberOfEmployees: "",
     yearFounded: "",
-    annualRevenue: ""
+    annualRevenue: "",
+    locations: [
+      {
+        address: ""
+      }
+    ]
+  };
+
+  handleAddLocation = () => {
+    this.setState({
+      locations: [
+        {
+          address: ""
+        },
+        ...this.state.locations
+      ]
+    });
+  };
+
+  handleChange = (address, i) => {
+    const copiedLocations = [...this.state.locations];
+    copiedLocations[i].address = address;
+    this.setState({ locations: copiedLocations });
+  };
+
+  handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log("Success", latLng))
+      .catch(error => console.error("Error", error));
   };
 
   handleInputChange = e => {
@@ -393,7 +428,116 @@ class UserInfo extends Component {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <div>
+            <p>
+              Is your business operating in a single location or multiple
+              locations?{" "}
+            </p>
+            {/* <div className="d-flex">
+              <div class="form-check mr-5">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Single
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Multiple
+                </label>
+              </div>
+            </div> */}
+
+            <p className="mt-3">
+              Please Enter the zipcode in which your business is operating
+            </p>
+            <form class="">
+              {this.state.locations.map((location, i) => (
+                <div className="d-flex">
+                  <div class="form-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="staticEmail2"
+                      placeholder="Zip code"
+                    />
+                  </div>
+                  <PlacesAutocomplete
+                    value={location.address}
+                    onChange={address => this.handleChange(address, i)}
+                    onSelect={this.handleSelect}
+                  >
+                    {({
+                      getInputProps,
+                      suggestions,
+                      getSuggestionItemProps,
+                      loading
+                    }) => (
+                      <div>
+                        <input
+                          {...getInputProps({
+                            placeholder: "Search Places ...",
+                            className: "location-search-input form-control ml-3"
+                          })}
+                        />
+                        <div className="autocomplete-dropdown-container">
+                          {loading && <div className="ml-3">Loading...</div>}
+                          {suggestions.map(suggestion => {
+                            const className = suggestion.active
+                              ? "suggestion-item--active"
+                              : "suggestion-item";
+                            // inline style for demonstration purpose
+                            const style = suggestion.active
+                              ? {
+                                  backgroundColor: "#fafafa",
+                                  cursor: "pointer"
+                                }
+                              : {
+                                  backgroundColor: "#ffffff",
+                                  cursor: "pointer"
+                                };
+                            return (
+                              <div
+                                {...getSuggestionItemProps(suggestion, {
+                                  className,
+                                  style
+                                })}
+                              >
+                                <span>{suggestion.description}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </PlacesAutocomplete>
+                </div>
+              ))}
+              <button
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleAddLocation();
+                }}
+                class="btn btn-secondary mb-2"
+              >
+                Add Another location
+              </button>
+            </form>
+          </div>
+          <button type="submit" className="btn btn-primary mt-5">
             Submit
           </button>
         </form>
