@@ -436,7 +436,7 @@ class UserInfo extends Component {
             <p className="mt-3">
               Please Enter the zipcode in which your business is operating
             </p>
-            <form class="form-inline">
+            <form class="">
               {this.state.locations.map(() => (
                 <div className="d-flex">
                   <div class="form-group mb-2">
