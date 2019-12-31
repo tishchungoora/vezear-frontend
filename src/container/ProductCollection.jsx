@@ -3,11 +3,11 @@ import ProductCard from "../component/search/ProductCard";
 
 export default class ProductCollection extends Component {
   render() {
-    const { products } = this.props;
+    const { displayedProducts } = this.props;
 
     return (
       <div className="row justify-content-center">
-        {products.map(product => (
+        {displayedProducts.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

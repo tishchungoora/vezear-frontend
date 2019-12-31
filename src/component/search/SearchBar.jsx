@@ -5,12 +5,17 @@ export default class SearchBar extends Component {
     return (
       <div>
         <h5 className="pb-2">Search by keyword:</h5>
-        <input
-          className="form-control"
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-        />
+        <form class="form-inline">
+          <input
+            className="form-control w-75"
+            type="text"
+            placeholder="Start typing..."
+            aria-label="Search"
+          />
+          <button class="btn btn-primary ml-2" type="submit">
+            Search
+          </button>
+        </form>
       </div>
     );
   }

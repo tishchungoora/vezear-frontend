@@ -2,39 +2,53 @@ import React, { Component } from "react";
 import ProductCollection from "./ProductCollection";
 import SearchBar from "../component/search/SearchBar";
 import CategorySelector from "../component/search/CategorySelector";
-
-const API_ENDPOINT = "http://localhost:3000";
+import API from "../adapters/API";
 
 export default class Search extends Component {
   state = {
     productCategories: [],
-    products: [],
-    searchTerm: ""
+    displayedProducts: [],
+    products: []
   };
 
-  getProductCategories = () => {
-    fetch(`${API_ENDPOINT}/product_categories`)
-      .then(response => response.json())
+  setProductCategories = () => {
+    API.fetchProductCategories().then(data =>
+      this.setState({
+        productCategories: data.sort((a, b) => a.name.localeCompare(b.name))
+      })
+    );
+  };
+
+  setProducts = () => {
+    API.fetchProducts()
       .then(data =>
         this.setState({
-          productCategories: data.sort((a, b) => a.name.localeCompare(b.name))
+          displayedProducts: data.sort((a, b) => a.name.localeCompare(b.name)),
+          products: data
         })
       );
   };
 
-  getProducts = () => {
-    fetch(`${API_ENDPOINT}/products`)
-      .then(response => response.json())
-      .then(data => this.setState({ products: data.sort((a, b) => a.name.localeCompare(b.name)) }));
-  };
-
   componentDidMount() {
-    this.getProductCategories();
-    this.getProducts();
+    this.setProductCategories();
+    this.setProducts();
   }
 
+  filterProducts = productCategory => {
+    if (productCategory !== "All") {
+      this.setState({
+        displayedProducts: this.state.products.filter(
+          p => p.product_category.name === productCategory
+        )
+      });
+    } else {
+      this.setState({ displayedProducts: this.state.products });
+    }
+  };
+
   render() {
-    const { productCategories, products, searchTerm } = this.state;
+    const { productCategories, displayedProducts } = this.state;
+    const { filterProducts } = this;
 
     return (
       <div className="flex-container">
@@ -43,11 +57,14 @@ export default class Search extends Component {
             <SearchBar />
           </div>
           <div className="col p-3">
-            <CategorySelector productCategories={productCategories} />
+            <CategorySelector
+              productCategories={productCategories}
+              filterProducts={filterProducts}
+            />
           </div>
         </div>
         <div>
-          <ProductCollection products={products} />
+          <ProductCollection displayedProducts={displayedProducts} />
         </div>
       </div>
     );
