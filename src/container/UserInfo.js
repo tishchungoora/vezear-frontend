@@ -118,7 +118,7 @@ class UserInfo extends Component {
               <label for="industry">Company industry</label>
               <select
                 className="custom-select"
-                id="revenue"
+                id="industry"
                 name="companyIndustry"
                 value={companyIndustry}
                 onChange={this.handleInputChange}
@@ -128,7 +128,7 @@ class UserInfo extends Component {
                 {this.state.businessCategories
                   .filter(category => category.name === "Food & drink")
                   .map(category => (
-                    <option unselected key={category.id} value={category.name}>
+                    <option unselected="true" key={category.id} value={category.name}>
                       {category.name}
                     </option>
                   ))}

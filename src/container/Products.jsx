@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductCollection from "./ProductCollection";
 import SearchBar from "../component/search/SearchBar";
 import CategorySelector from "../component/search/CategorySelector";
+import ProductShow from "../component/ProductShow";
 import API from "../adapters/API";
 
 export default class Products extends Component {
@@ -9,7 +10,8 @@ export default class Products extends Component {
     productCategories: [],
     displayedProducts: [],
     products: [],
-    searchTerm: ""
+    searchTerm: "",
+    selectedProduct: null
   };
 
   setProductCategories = () => {
@@ -69,33 +71,57 @@ export default class Products extends Component {
     }
   };
 
+  showProduct = product => {
+    this.setState({ selectedProduct: product });
+  };
+
+  goBack = () => {
+    this.setState({ selectedProduct: null });
+  };
+
   render() {
-    const { productCategories, displayedProducts } = this.state;
+    const {
+      productCategories,
+      displayedProducts,
+      selectedProduct
+    } = this.state;
     const {
       filterProducts,
       handleSearchInputChange,
-      handleSearchSubmit
+      handleSearchSubmit,
+      showProduct,
+      goBack
     } = this;
 
     return (
       <div className="flex-container">
-        <div className="row bg-light border m-5 p-3">
-          <div className="col p-3">
-            <SearchBar
-              handleSearchInputChange={handleSearchInputChange}
-              handleSearchSubmit={handleSearchSubmit}
-            />
+        {this.state.selectedProduct === null ? (
+          <div>
+            <div className="row bg-light border m-5 p-3">
+              <div className="col p-3">
+                <SearchBar
+                  handleSearchInputChange={handleSearchInputChange}
+                  handleSearchSubmit={handleSearchSubmit}
+                />
+              </div>
+              <div className="col p-3">
+                <CategorySelector
+                  productCategories={productCategories}
+                  filterProducts={filterProducts}
+                />
+              </div>
+            </div>
+
+            <div>
+              <ProductCollection
+                displayedProducts={displayedProducts}
+                showProduct={showProduct}
+              />
+            </div>
           </div>
-          <div className="col p-3">
-            <CategorySelector
-              productCategories={productCategories}
-              filterProducts={filterProducts}
-            />
-          </div>
-        </div>
-        <div>
-          <ProductCollection displayedProducts={displayedProducts} />
-        </div>
+        ) : (
+          <ProductShow selectedProduct={selectedProduct} goBack={goBack} />
+        )}
       </div>
     );
   }
