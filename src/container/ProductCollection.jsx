@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProductCard from "../component/search/ProductCard";
+import ProductCard from "../component/ProductCard";
 
 export default class ProductCollection extends Component {
   render() {

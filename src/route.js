@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./component/App";
 import Login from "./container/Login";
-import Search from "./container/Search";
+import Products from "./container/Products";
 import UserInfo from "./container/UserInfo";
 import Questions from "./container/Questions";
 import Recommendation from "./container/Recommendation";
@@ -53,16 +53,16 @@ export default function AppRoute() {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link" to="/search">
-                Search Products
+              <Link class="nav-link" to="/products">
+                Products
               </Link>
             </li>
           </ul>
         </div>
       </nav>
       <Switch>
-        <Route path="/search">
-          <Search />
+        <Route path="/products">
+          <Products />
         </Route>
         <Route path="/login">
           <Login />

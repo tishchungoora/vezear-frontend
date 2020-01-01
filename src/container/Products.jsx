@@ -4,7 +4,7 @@ import SearchBar from "../component/search/SearchBar";
 import CategorySelector from "../component/search/CategorySelector";
 import API from "../adapters/API";
 
-export default class Search extends Component {
+export default class Products extends Component {
   state = {
     productCategories: [],
     displayedProducts: [],
