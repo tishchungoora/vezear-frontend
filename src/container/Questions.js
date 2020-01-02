@@ -46,7 +46,7 @@ class Questions extends Component {
       },
       {
         id: 2,
-        value: false,
+        value: [],
         question:
           "Which of the following sales channels would you consider using for reservations? Please select all that apply.",
         options: [
@@ -55,8 +55,7 @@ class Questions extends Component {
           { name: " Delivery Services (Deliveroo, Uber Eats, Just Eat, etc.)" },
           { name: "Catering" },
           {
-            name: "Online Booking via Website",
-            value: false,
+            name: "Online Booking via Website"
             // subQuestion: {
             //   id: 2.1,
             //   question: "Do you already have a website ?",
@@ -103,7 +102,7 @@ class Questions extends Component {
           { name: "Blogs" }
         ],
         type: "checkbox",
-        value: ""
+        value: []
       },
       {
         id: 4,
@@ -125,11 +124,19 @@ class Questions extends Component {
     currentQuestion: 1
   };
 
-  handleCheck = id => {
-    this.state.questions.forEach(question => {
-      if (id === question.id) {
-        question.value ? (question.value = false) : (question.value = true);
-      }
+  handleCheck = (name, id, type) => {
+    const copyQuestions = [...this.state.questions];
+    if (type === "radio") {
+      copyQuestions[id].value = name;
+    } else {
+      copyQuestions[id].value.includes(name)
+        ? (copyQuestions[id].value = copyQuestions[id].value.filter(
+            eachName => eachName !== name
+          ))
+        : copyQuestions[id].value.push(name);
+    }
+    this.setState({
+      questions: copyQuestions
     });
   };
 
@@ -201,6 +208,7 @@ class Questions extends Component {
             value={questions[currentQuestion - 1].value}
             id={questions[currentQuestion - 1].id - 1}
             handleSliderChange={this.handleSliderChange}
+            handleCheck={this.handleCheck}
           />
         </div>
       </div>

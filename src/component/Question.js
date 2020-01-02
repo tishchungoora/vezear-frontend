@@ -9,7 +9,8 @@ export default function Question({
   type = "radio",
   value,
   id,
-  handleSliderChange
+  handleSliderChange,
+  handleCheck
 }) {
   return (
     <div className="mb-5">
@@ -40,8 +41,11 @@ export default function Question({
                     className="form-check-input ml-3"
                     id={option.name}
                     value={option.name}
-                    checked={option.value}
+                    checked={
+                      option.name === value || value.includes(option.name)
+                    }
                     name="radio"
+                    onChange={() => handleCheck(option.name, id, type)}
                   />
                   <label className="form-radio-label ml-5" for={option}>
                     {option.name}
