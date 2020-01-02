@@ -37,3 +37,12 @@ footer a:hover {
 footer a:visited {
   color: lightgrey;
 }
+
+html, body > #root > div:not(#footerDiv) {
+  min-height: 100vh;
+}
+
+img.instructions {
+  max-height: 150px;
+  
+}
