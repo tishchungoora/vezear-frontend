@@ -10,52 +10,81 @@ class Questions extends Component {
         question:
           "Which one of the following categories of the Food & Drink industry most closely reflects the type of business you currently operate in or intend to operate in?",
         options: [
-          "Bakery",
-          "Bagel shop",
-          "Bar",
-          "Bottled water company",
-          "Brewery",
-          "Bubble tea shop",
-          "Butcher's shop",
-          "Cafeteria",
-          "Café",
-          "Caterer",
-          "Cheese shop",
-          "Convenience store",
-          "Deli",
-          "Dessert shop",
-          "Distillery",
-          "Doughnut shop",
-          "Farmers' market",
-          "Food consultant",
-          "Food delivery service",
-          "Food service distributor",
-          "Food stall",
-          "Food wholesaler",
-          "Personal chef",
-          "Restaurant",
-          "Sandwich shop",
-          "Smoothie and juice bar",
-          "Snack van",
-          "Supermarket/Convenience store",
-          "Wine, beer and spirits shop",
-          "Winery/Vineyard"
+          { name: "Bakery" },
+          { name: "Bagel shop" },
+          { name: "Bar" },
+          { name: "Bottled water company" },
+          { name: "Brewery" },
+          { name: "Bubble tea shop" },
+          { name: "Butcher's shop" },
+          { name: "Cafeteria" },
+          { name: "Café" },
+          { name: "Caterer" },
+          { name: "Cheese shop" },
+          { name: "Convenience store" },
+          { name: "Deli" },
+          { name: "Dessert shop" },
+          { name: "Distillery" },
+          { name: "Doughnut shop" },
+          { name: "Farmers' market" },
+          { name: "Food consultant" },
+          { name: "Food delivery service" },
+          { name: "Food service distributor" },
+          { name: "Food stall" },
+          { name: "Food wholesaler" },
+          { name: "Personal chef" },
+          { name: "Restaurant" },
+          { name: "Sandwich shop" },
+          { name: "Smoothie and juice bar" },
+          { name: "Snack van" },
+          { name: "Supermarket/Convenience store" },
+          { name: "Wine, beer and spirits shop" },
+          { name: "Winery/Vineyard" }
         ],
         value: "",
         type: "radio"
       },
       {
         id: 2,
+        value: false,
         question:
           "Which of the following sales channels would you consider using for reservations? Please select all that apply.",
         options: [
-          "Telephone Booking",
-          "Online Booking via Website",
-          "Third Party Platforms (OpenTable, Yelp, Quandoo, etc.)",
-          " Delivery Services (Deliveroo, Uber Eats, Just Eat, etc.)",
-          "Catering"
+          { name: "Telephone Booking" },
+          { name: "Third Party Platforms (OpenTable, Yelp, Quandoo, etc.)" },
+          { name: " Delivery Services (Deliveroo, Uber Eats, Just Eat, etc.)" },
+          { name: "Catering" },
+          {
+            name: "Online Booking via Website",
+            value: false,
+            // subQuestion: {
+            //   id: 2.1,
+            //   question: "Do you already have a website ?",
+            //   options: [
+            //     {
+            //       name: "yes",
+            //       value: false,
+            //       subQuestion: {
+            //         id: "2.1.1",
+            //         question:
+            //           "Are you looking to add a booking functionality to your website",
+            //         options: [{ name: "yes" }, { name: "no" }]
+            //       }
+            //     },
+            //     {
+            //       name: "no",
+            //       value: false,
+            //       subQuestion: {
+            //         id: "2.1.2",
+            //         question:
+            //           "Would your like us to help your build a website with booking functionality",
+            //         options: [{ name: "yes" }, { name: "no" }]
+            //       }
+            //     }
+            //   ]
+            // }
+          }
         ],
-        value: "",
         type: "checkbox"
       },
       {
@@ -63,15 +92,15 @@ class Questions extends Component {
         question:
           "Which of the following marketing channels do you consider using for marketing to your customers? Please select all that apply.",
         options: [
-          "Website",
-          "Instagram Ads",
-          "Facebook Ads",
-          "Google +",
-          "Google Ads",
-          "Yelp",
-          "Email newsletters",
-          "Coupon Services",
-          "Blogs"
+          { name: "Website" },
+          { name: "Instagram Ads" },
+          { name: "Facebook Ads" },
+          { name: "Google +" },
+          { name: "Google Ads" },
+          { name: "Yelp" },
+          { name: "Email newsletters" },
+          { name: "Coupon Services" },
+          { name: "Blogs" }
         ],
         type: "checkbox",
         value: ""
@@ -80,7 +109,7 @@ class Questions extends Component {
         id: 4,
         question:
           "Approximately what percentage of revenue from sales do you expect to come from customers booking online against in-store customers?",
-        options: ["Online", "In-store"],
+        options: [{ name: "Online" }, { name: "In-store" }],
         type: "range",
         value: 50
       },
@@ -88,12 +117,20 @@ class Questions extends Component {
         id: 5,
         question:
           "Approximately what percentage of your in-store customers eat on premise against those who choose to take out?",
-        options: ["In store", "Take-out"],
+        options: [{ name: "In store" }, { name: "Take-out" }],
         type: "range",
         value: 50
       }
     ],
     currentQuestion: 1
+  };
+
+  handleCheck = id => {
+    this.state.questions.forEach(question => {
+      if (id === question.id) {
+        question.value ? (question.value = false) : (question.value = true);
+      }
+    });
   };
 
   handleSliderChange = (value, i) => {

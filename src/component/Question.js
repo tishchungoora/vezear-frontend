@@ -28,23 +28,34 @@ export default function Question({
                 onChangeComplete={() => {}}
               />
               <div className="value">
-                {options[0]} {value}%, {options[1]} {100 - value}%
+                {options[0].name} {value}%, {options[1].name} {100 - value}%
               </div>
             </div>
           ) : (
             options.map(option => (
-              <div classNamme="form-check ml-3" key={option}>
-                <input
-                  type={type}
-                  className="form-check-input ml-3"
-                  id={option}
-                  value={option}
-                  name="radio"
-                />
-                <label className="form-radio-label ml-5" for={option}>
-                  {option}
-                </label>
-              </div>
+              <>
+                <div classNamme="form-check ml-3" key={option.name}>
+                  <input
+                    type={type}
+                    className="form-check-input ml-3"
+                    id={option.name}
+                    value={option.name}
+                    checked={option.value}
+                    name="radio"
+                  />
+                  <label className="form-radio-label ml-5" for={option}>
+                    {option.name}
+                  </label>
+                </div>
+                {option.subQuestion ? (
+                  <Question
+                    question={option.subQuestion.question}
+                    options={option.subQuestion.options}
+                    key={option.subQuestion.question}
+                    type={option.subQuestion.type}
+                  />
+                ) : null}
+              </>
             ))
           )}
         </div>

@@ -28,23 +28,8 @@ export default function AppRoute() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ">
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Signup
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/account">
+              <Link className="nav-link" to="/user">
                 Account
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Businesses
               </Link>
             </li>
             <li className="nav-item">
@@ -74,7 +59,7 @@ export default function AppRoute() {
           <Questions />
         </Route>
         <Route path="/recommendation">
-          <Recommendation />
+          <Products />
         </Route>
         <Route path="/">
           <App />
@@ -82,4 +67,4 @@ export default function AppRoute() {
       </Switch>
     </Router>
   );
-};
+}
