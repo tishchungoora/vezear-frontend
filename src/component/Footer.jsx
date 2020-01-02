@@ -3,9 +3,9 @@ import React, { Component } from "react";
 export default class Footer extends Component {
   render() {
     return (
-      <div>
-        <footer id="footer" className="py-4 bg-dark text-white-50 position-relative">
-          <div className="container text-center">
+      <div id="footerDiv">
+        <footer id="footer" className="py-4 bg-dark text-white-50">
+          <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <div className="col-4">
                 <small className="text-uppercase">Creators</small>
