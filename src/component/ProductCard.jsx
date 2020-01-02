@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class ProductCard extends Component {
   render() {
-    const { product } = this.props;
+    const { product, showProduct } = this.props;
 
     return (
       <div className="card w-25 m-3 shadow">
@@ -26,9 +26,9 @@ export default class ProductCard extends Component {
           </p>
         </div>
         <div className="card-body">
-          <a href={product.website} target={"_blank"} class="btn btn-info">
+          <button className="btn btn-info" onClick={() => showProduct(product)}>
             Learn more
-          </a>
+          </button>
         </div>
       </div>
     );
