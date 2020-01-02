@@ -6,13 +6,14 @@ import Products from "./container/Products";
 import UserInfo from "./container/UserInfo";
 import Questions from "./container/Questions";
 import Recommendation from "./container/Recommendation";
+import Footer from "./component/Footer"
 
 export default function AppRoute() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/">
-          Vezear
+          <img src="vezear-white-font.png" alt="Vezear" height="40px" />
         </Link>
         <button
           className="navbar-toggler"
@@ -26,7 +27,7 @@ export default function AppRoute() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/login">
                 Login
@@ -53,7 +54,7 @@ export default function AppRoute() {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link" to="/products">
+              <Link className="nav-link" to="/products">
                 Products
               </Link>
             </li>
@@ -80,6 +81,7 @@ export default function AppRoute() {
           <App />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 };
