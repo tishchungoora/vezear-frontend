@@ -87,7 +87,7 @@ class UserInfo extends Component {
 
     return (
       <div className="p-5">
-        <h2 className="text-center mb-3">User Information</h2>
+        <h1 className="text-center display-4 mb-3">User Information</h1>
         <form className="container" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label for="full-name">Full name</label>

@@ -168,7 +168,7 @@ class Questions extends Component {
 
     return (
       <div className="container mt-5">
-        <h2 className="mb-4">Questions</h2>
+        <h1 className="display-4 mb-4">Questions</h1>
         <div className="mb-4">
           <button
             className="btn btn-warning mr-5"
