@@ -30,12 +30,12 @@ export default function AppRoute() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/user">
-                Account
+                User Details
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/questions">
-                Start
+                Guided Questions
               </Link>
             </li>
             <li className="nav-item">
