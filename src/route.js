@@ -38,7 +38,7 @@ export default function AppRoute() {
                 Start
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/products">
                 Products
               </Link>

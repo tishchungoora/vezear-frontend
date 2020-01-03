@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 class App extends Component {
   handleSubmit = () => {
-    this.props.history.push("/user")
-  }
+    this.props.history.push("/user");
+  };
 
   render() {
     return (
@@ -22,8 +22,8 @@ class App extends Component {
               src="step-1.png"
               alt="Step 1"
             />
+            <h5 className="mt-3">STEP 1</h5>
             <p className="lead mt-3">
-              <h5>STEP 1</h5>
               Tell us a bit about yourself and your intended business. We take
               your data very seriously and will in no circumstances give your
               information away without your consent.
@@ -35,8 +35,8 @@ class App extends Component {
               src="step-2.png"
               alt="Step 2"
             />
+            <h5 className="mt-3">STEP 2</h5>
             <p className="lead mt-3">
-              <h5>STEP 2</h5>
               Answer our quick survey to help us provide you with the best
               recommendation for products and services that suit your needs.
             </p>
@@ -47,10 +47,10 @@ class App extends Component {
               src="step-3.png"
               alt="Step 3"
             />
+            <h5 className="mt-3">STEP 3</h5>
             <p className="lead mt-3">
-              <h5>STEP 3</h5>
-              Browse our recommended products and services and onboard at a click
-              of a button.
+              Browse our recommended products and services and onboard at a
+              click of a button.
             </p>
           </div>
         </div>
@@ -58,13 +58,12 @@ class App extends Component {
         <div className="row justify-content-center m-5">
           <h1 className="display-5 text-info">Ready?</h1>
           <button className="btn btn-info ml-5" onClick={this.handleSubmit}>
-              Let's get started...
-            </button>
+            Let's get started...
+          </button>
         </div>
       </div>
     );
   }
+}
 
-  }
-
-  export default withRouter(App);
+export default withRouter(App);

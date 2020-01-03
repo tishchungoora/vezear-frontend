@@ -90,7 +90,7 @@ class UserInfo extends Component {
         <h1 className="text-center display-4 mb-3">User Information</h1>
         <form className="container" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label for="full-name">Full name</label>
+            <label htmlFor="full-name">Full name</label>
             <input
               type="text"
               className="form-control"
@@ -103,7 +103,7 @@ class UserInfo extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="company-name">Company name</label>
+              <label htmlFor="company-name">Company name</label>
               <input
                 type="text"
                 className="form-control"
@@ -115,7 +115,7 @@ class UserInfo extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label for="industry">Company industry</label>
+              <label htmlFor="industry">Company industry</label>
               <select
                 className="custom-select"
                 id="industry"
@@ -146,7 +146,7 @@ class UserInfo extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="size">Company size</label>
+              <label htmlFor="size">Company size</label>
               <input
                 type="text"
                 className="form-control"
@@ -158,7 +158,7 @@ class UserInfo extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label for="employee">Number of employees</label>
+              <label htmlFor="employee">Number of employees</label>
               <select
                 className="custom-select"
                 id="inputGroupSelect01"
@@ -177,7 +177,7 @@ class UserInfo extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="year">Year founded</label>
+              <label htmlFor="year">Year founded</label>
               <input
                 type="text"
                 className="form-control"
@@ -189,7 +189,7 @@ class UserInfo extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label for="revenue">Annual revenue</label>
+              <label htmlFor="revenue">Annual revenue</label>
               <select
                 className="custom-select"
                 id="revenue"
