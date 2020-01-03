@@ -98,16 +98,16 @@ export default class Products extends Component {
         {this.state.selectedProduct === null ? (
           <div>
             <div className="row bg-light border m-5 p-3">
+            <div className="col p-3">
+                <CategorySelector
+                  productCategories={productCategories}
+                  filterProducts={filterProducts}
+                />
+              </div>
               <div className="col p-3">
                 <SearchBar
                   handleSearchInputChange={handleSearchInputChange}
                   handleSearchSubmit={handleSearchSubmit}
-                />
-              </div>
-              <div className="col p-3">
-                <CategorySelector
-                  productCategories={productCategories}
-                  filterProducts={filterProducts}
                 />
               </div>
             </div>
