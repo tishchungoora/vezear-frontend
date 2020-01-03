@@ -28,12 +28,6 @@ class UserInfo extends Component {
     this.setBusinessCategories();
   }
 
-  handleChange = (address, i) => {
-    const copiedLocations = [...this.state.locations];
-    copiedLocations[i].address = address;
-    this.setState({ locations: copiedLocations });
-  };
-
   handleInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value

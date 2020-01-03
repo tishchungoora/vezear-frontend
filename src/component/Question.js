@@ -35,7 +35,7 @@ export default function Question({
           ) : (
             options.map(option => (
               <>
-                <div classNamme="form-check ml-3" key={option.name}>
+                <div className="form-check ml-3" key={option.name}>
                   <input
                     type={type}
                     className="form-check-input ml-3"
@@ -47,18 +47,10 @@ export default function Question({
                     name="radio"
                     onChange={() => handleCheck(option.name, id, type)}
                   />
-                  <label className="form-radio-label ml-5" for={option}>
+                  <label className="form-radio-label ml-5" htmlFor={option}>
                     {option.name}
                   </label>
                 </div>
-                {option.subQuestion ? (
-                  <Question
-                    question={option.subQuestion.question}
-                    options={option.subQuestion.options}
-                    key={option.subQuestion.question}
-                    type={option.subQuestion.type}
-                  />
-                ) : null}
               </>
             ))
           )}

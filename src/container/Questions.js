@@ -54,35 +54,7 @@ class Questions extends Component {
           { name: "Third Party Platforms (OpenTable, Yelp, Quandoo, etc.)" },
           { name: " Delivery Services (Deliveroo, Uber Eats, Just Eat, etc.)" },
           { name: "Catering" },
-          {
-            name: "Online Booking via Website"
-            // subQuestion: {
-            //   id: 2.1,
-            //   question: "Do you already have a website ?",
-            //   options: [
-            //     {
-            //       name: "yes",
-            //       value: false,
-            //       subQuestion: {
-            //         id: "2.1.1",
-            //         question:
-            //           "Are you looking to add a booking functionality to your website",
-            //         options: [{ name: "yes" }, { name: "no" }]
-            //       }
-            //     },
-            //     {
-            //       name: "no",
-            //       value: false,
-            //       subQuestion: {
-            //         id: "2.1.2",
-            //         question:
-            //           "Would your like us to help your build a website with booking functionality",
-            //         options: [{ name: "yes" }, { name: "no" }]
-            //       }
-            //     }
-            //   ]
-            // }
-          }
+          { name: "Online Booking via Website" }
         ],
         type: "checkbox"
       },
