@@ -5,7 +5,7 @@ import Login from "./container/Login";
 import Products from "./container/Products";
 import UserInfo from "./container/UserInfo";
 import Questions from "./container/Questions";
-import Recommendation from "./container/Recommendation";
+// import Recommendation from "./container/Recommendation";
 import Footer from "./component/Footer"
 
 export default function AppRoute() {
