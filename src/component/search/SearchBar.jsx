@@ -7,7 +7,7 @@ export default class SearchBar extends Component {
     return (
       <div>
         <h5 className="pb-2">Search by keyword:</h5>
-        <form class="form-inline" onSubmit={handleSearchSubmit}>
+        <form className="form-inline" onSubmit={handleSearchSubmit}>
           <input
             className="form-control w-75"
             type="text"
@@ -15,7 +15,7 @@ export default class SearchBar extends Component {
             aria-label="Search"
             onChange={handleSearchInputChange}
           />
-          <button class="btn btn-primary ml-2" type="submit">
+          <button className="btn btn-primary ml-2" type="submit">
             Search
           </button>
         </form>

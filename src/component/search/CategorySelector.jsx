@@ -8,7 +8,7 @@ export default class CategorySelector extends Component {
       <div>
         <h5 className="pb-2">Filter by category:</h5>
         <select
-          class="form-control"
+          className="form-control"
           id="categorySelector"
           onChange={event => filterProducts(event.target.value)}
         >
