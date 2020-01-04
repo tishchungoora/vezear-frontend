@@ -89,7 +89,7 @@ class UserInfo extends Component {
                 onChange={this.handleInputChange}
               >
                 {/* Enable options that are applicable */}
-                <option selected value="">
+                <option value="">
                   Choose...
                 </option>
                 {this.state.businessCategories
@@ -137,7 +137,7 @@ class UserInfo extends Component {
                 value={numberOfEmployees}
                 onChange={this.handleInputChange}
               >
-                <option selected>Choose...</option>
+                <option value="">Choose...</option>
                 <option value="0-10">0-10</option>
                 <option value="10-30">10-30</option>
                 <option value="30-100">30-100</option>
@@ -168,7 +168,7 @@ class UserInfo extends Component {
                 value={annualRevenue}
                 onChange={this.handleInputChange}
               >
-                <option selected>Choose...</option>
+                <option value="">Choose...</option>
                 <option value="0-500K">0-500K</option>
                 <option value="500K-5M">500K-5M</option>
                 <option value="5-20M">5-20M</option>

@@ -46,7 +46,6 @@ class Questions extends Component {
       },
       {
         id: 2,
-        value: [],
         question:
           "Which of the following sales channels would you consider using for reservations? Please select all that apply.",
         options: [
@@ -56,7 +55,8 @@ class Questions extends Component {
           { name: "Catering" },
           { name: "Online Booking via Website" }
         ],
-        type: "checkbox"
+        type: "checkbox",
+        value: []
       },
       {
         id: 3,
