@@ -23,7 +23,7 @@ code {
 }
 
 footer {
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 footer a {
@@ -38,11 +38,30 @@ footer a:visited {
   color: lightgrey;
 }
 
-html, body > #root > div:not(#footerDiv) {
+html,
+body > #root > div:not(#footerDiv) {
   min-height: 100vh;
 }
 
 img.instructions {
   max-height: 150px;
-  
+}
+
+#banner-logo img {
+  max-height: 150px;
+  margin-bottom: 2em;
+}
+
+#banner p {
+  color: white;
+  // text-align: center;
+  font-size: 1.5em;
+}
+
+#banner {
+  background-image: url(banner.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5em;
 }

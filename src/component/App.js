@@ -10,7 +10,21 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <div id="banner" className="row justify-content-center mb-5">
-          <img className="img-fluid" src="banner.png" alt="Banner" />
+          <div id="banner-logo" className="text-center">
+            <div>
+              <img
+                className="img-fluid"
+                src="vezear-white-font.png"
+                alt="Banner logo"
+              />
+            </div>
+            <div id="banner-slogan" className="text-center">
+              <p className="lead">
+                Product & services recommendation engine for companies starting
+                up
+              </p>
+            </div>
+          </div>
         </div>
         <div className="row justify-content-center mb-5">
           <h1 className="display-4">How it works...</h1>
